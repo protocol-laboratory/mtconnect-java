@@ -10,6 +10,12 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>mtconnect-client-api</module>
+        <module>mtconnect-client-reactive</module>
+        <module>mtconnect-client-vertx</module>
+        <module>mtconnect-server-api</module>
+        <module>mtconnect-server-reactive</module>
+        <module>mtconnect-server-vertx</module>
     </modules>
 
     <properties>
@@ -21,7 +27,9 @@
         <junit.version>5.11.0</junit.version>
         <log4j.version>2.20.0</log4j.version>
         <lombok.version>1.18.34</lombok.version>
+        <reactor-netty.version>1.1.22</reactor-netty.version>
         <slf4j.version>2.0.16</slf4j.version>
+        <vertx.version>4.5.9</vertx.version>
         <!-- plugin -->
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
