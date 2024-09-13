@@ -11,4 +11,12 @@
 
     <artifactId>mtconnect-client-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.github.shoothzj</groupId>
+            <artifactId>http-client-facade</artifactId>
+            <version>${http-client-facade.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

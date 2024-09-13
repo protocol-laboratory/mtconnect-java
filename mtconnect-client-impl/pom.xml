@@ -9,18 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mtconnect-client-vertx</artifactId>
+    <artifactId>mtconnect-client-impl</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-core</artifactId>
-            <version>${vertx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-web-client</artifactId>
-            <version>${vertx.version}</version>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>mtconnect-client-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
