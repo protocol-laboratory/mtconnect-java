@@ -1,6 +1,6 @@
 package io.github.protocol.mtconnect.client;
 
-import io.github.shoothzj.http.facade.client.HttpClientConfig;
+import io.github.openfacade.http.HttpClientConfig;
 import lombok.Setter;
 
 @Setter

@@ -27,4 +27,9 @@
         <Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD"/>
     </Match>
 
+    <Match>
+        <Bug pattern="DLS_DEAD_LOCAL_STORE"/>
+        <Class name="io.github.protocol.mtconnect.examples.MtConnectClientExample"/>
+    </Match>
+
 </FindBugsFilter>

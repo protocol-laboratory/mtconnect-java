@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <src.dir>src/main/java</src.dir>
         <!-- dependency -->
-        <http-facade.version>0.0.2</http-facade.version>
+        <http-facade.version>0.1.0</http-facade.version>
         <junit.version>5.11.0</junit.version>
         <log4j.version>2.20.0</log4j.version>
         <lombok.version>1.18.34</lombok.version>

@@ -1,8 +1,8 @@
 package io.github.protocol.mtconnect.server;
 
-import io.github.shoothzj.http.facade.core.HttpRequest;
-import io.github.shoothzj.http.facade.core.HttpResponse;
-import io.github.shoothzj.http.facade.server.RequestHandler;
+import io.github.openfacade.http.HttpRequest;
+import io.github.openfacade.http.HttpResponse;
+import io.github.openfacade.http.RequestHandler;
 import lombok.Getter;
 import lombok.Setter;
 

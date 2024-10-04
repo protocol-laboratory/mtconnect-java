@@ -13,8 +13,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.shoothzj</groupId>
-            <artifactId>http-facade-client</artifactId>
+            <groupId>io.github.openfacade</groupId>
+            <artifactId>http-facade</artifactId>
             <version>${http-facade.version}</version>
         </dependency>
     </dependencies>

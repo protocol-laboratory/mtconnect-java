@@ -1,7 +1,7 @@
 package io.github.protocol.mtconnect.client;
 
-import io.github.shoothzj.http.facade.client.HttpClient;
-import io.github.shoothzj.http.facade.client.HttpClientFactory;
+import io.github.openfacade.http.HttpClient;
+import io.github.openfacade.http.HttpClientFactory;
 
 public class MtConnectClient {
     private final MtConnectClientConfiguration config;

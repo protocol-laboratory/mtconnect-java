@@ -1,8 +1,8 @@
 package io.github.protocol.mtconnect.server;
 
-import io.github.shoothzj.http.facade.core.HttpMethod;
-import io.github.shoothzj.http.facade.server.HttpServer;
-import io.github.shoothzj.http.facade.server.HttpServerFactory;
+import io.github.openfacade.http.HttpMethod;
+import io.github.openfacade.http.HttpServer;
+import io.github.openfacade.http.HttpServerFactory;
 
 import java.util.concurrent.CompletableFuture;
 
