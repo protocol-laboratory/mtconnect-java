@@ -9,18 +9,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mtconnect-client</artifactId>
+    <artifactId>mtconnect-common</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>io.github.protocol-laboratory</groupId>
-            <artifactId>mtconnect-common</artifactId>
+            <artifactId>mtconnect-api</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.openfacade</groupId>
-            <artifactId>http-facade</artifactId>
-            <version>${http-facade.version}</version>
         </dependency>
     </dependencies>
 

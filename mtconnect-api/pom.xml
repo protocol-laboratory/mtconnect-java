@@ -9,18 +9,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mtconnect-client</artifactId>
+    <artifactId>mtconnect-api</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>io.github.protocol-laboratory</groupId>
-            <artifactId>mtconnect-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.openfacade</groupId>
-            <artifactId>http-facade</artifactId>
-            <version>${http-facade.version}</version>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
     </dependencies>
 

@@ -13,6 +13,8 @@
         <module>mtconnect-client</module>
         <module>mtconnect-examples</module>
         <module>mtconnect-server</module>
+        <module>mtconnect-api</module>
+        <module>mtconnect-common</module>
     </modules>
 
     <properties>
@@ -21,7 +23,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <src.dir>src/main/java</src.dir>
         <!-- dependency -->
-        <http-facade.version>0.1.0</http-facade.version>
+        <http-facade.version>0.2.0</http-facade.version>
+        <jackson.version>2.17.2</jackson.version>
         <junit.version>5.11.0</junit.version>
         <log4j.version>2.20.0</log4j.version>
         <lombok.version>1.18.34</lombok.version>
@@ -44,6 +47,18 @@
         <spotbugs-maven-plugin.version>4.8.6.2</spotbugs-maven-plugin.version>
         <spotless-maven-plugin.version>2.43.0</spotless-maven-plugin.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>

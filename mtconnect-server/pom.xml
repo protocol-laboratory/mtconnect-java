@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>mtconnect-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.github.openfacade</groupId>
             <artifactId>http-facade</artifactId>
             <version>${http-facade.version}</version>
