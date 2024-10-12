@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class MTConnectDevicesDecodeTest {
     @Test
-    void testMTConnectDevicesParsing() throws Exception {
-        // The raw XML string
+    void testMTConnectDevicesDecode() throws Exception {
         String xml = """
                 <?xml version="1.0" encoding="UTF-8"?>
                 <MTConnectDevices xmlns:m="urn:mtconnect.org:MTConnectDevices:1.1"
