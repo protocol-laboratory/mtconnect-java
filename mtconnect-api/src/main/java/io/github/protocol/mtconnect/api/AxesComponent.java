@@ -18,8 +18,8 @@ import lombok.Setter;
 })
 public class AxesComponent {
     @JacksonXmlProperty(isAttribute = true)
-    private String id;
+    protected String id;
 
     @JacksonXmlProperty(isAttribute = true)
-    private String name;
+    protected String name;
 }

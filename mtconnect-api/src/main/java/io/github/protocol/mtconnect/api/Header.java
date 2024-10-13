@@ -21,4 +21,13 @@ public class Header {
 
     @JacksonXmlProperty(isAttribute = true)
     private String version;
+
+    @JacksonXmlProperty(isAttribute = true)
+    private long nextSequence;
+
+    @JacksonXmlProperty(isAttribute = true)
+    private long firstSequence;
+
+    @JacksonXmlProperty(isAttribute = true)
+    private long lastSequence;
 }
