@@ -18,6 +18,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.huaweicloud.sdk</groupId>
+            <artifactId>huaweicloud-sdk-iotda</artifactId>
+            <version>${huaweicloud-sdk.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.github.openfacade</groupId>
             <artifactId>http-facade</artifactId>
             <version>${http-facade.version}</version>

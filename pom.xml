@@ -24,6 +24,7 @@
         <src.dir>src/main/java</src.dir>
         <!-- dependency -->
         <http-facade.version>0.2.0</http-facade.version>
+        <huaweicloud-sdk.version>3.1.117</huaweicloud-sdk.version>
         <jackson.version>2.17.2</jackson.version>
         <junit.version>5.11.0</junit.version>
         <log4j.version>2.20.0</log4j.version>
