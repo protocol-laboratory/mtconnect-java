@@ -6,7 +6,12 @@ import io.github.openfacade.http.HttpResponse;
 import io.github.openfacade.http.HttpServer;
 import io.github.openfacade.http.HttpServerFactory;
 import io.github.openfacade.http.SyncRequestHandler;
+import io.github.protocol.mtconnect.api.AssetRequest;
+import io.github.protocol.mtconnect.api.AssetResponse;
+import io.github.protocol.mtconnect.common.XmlUtil;
+import io.netty.handler.codec.http.HttpResponseStatus;
 
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 
 public class MtConnectServer {
@@ -30,11 +35,16 @@ public class MtConnectServer {
     class MtAssetsHandler implements SyncRequestHandler {
         @Override
         public HttpResponse handle(HttpRequest request) {
-            // todo
-            // read http request to mt asset request
-            // call mtProcessor to get the response
+            AssetResponse assetResponse = mtProcessor.asset(new AssetRequest());
             // convert the response to http response
-            return null;
+            String body;
+            try {
+                body = XmlUtil.toXml(assetResponse.getAssets());
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            return new HttpResponse(HttpResponseStatus.OK.code(), body.getBytes(StandardCharsets.UTF_8));
         }
     }
 }
