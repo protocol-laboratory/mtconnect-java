@@ -22,6 +22,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <src.dir>src/main/java</src.dir>
+        <jacoco.overall.exec>${maven.multiModuleProjectDirectory}/target/jacoco/jacoco.exec</jacoco.overall.exec>
         <!-- dependency -->
         <http-facade.version>0.2.0</http-facade.version>
         <huaweicloud-sdk.version>3.1.117</huaweicloud-sdk.version>
@@ -82,16 +83,23 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin.version}</version>
+                <configuration>
+                    <destFile>${jacoco.overall.exec}</destFile>
+                    <dataFile>${jacoco.overall.exec}</dataFile>
+                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
+                        <configuration>
+                            <append>true</append>
+                        </configuration>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>test</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
