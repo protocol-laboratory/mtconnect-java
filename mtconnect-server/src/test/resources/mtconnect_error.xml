@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MTConnectError xmlns="urn:mtconnect.org:MTConnectError:1.1"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="urn:mtconnect.org:MTConnectError:1.1 http://www.mtconnect.org/schemas/MTConnectError_1.1.xsd">
+
+    <Header creationTime="2010-03-12T12:33:01" sender="localhost"
+            version="1.1" bufferSize="131072" instanceId="1268463594" />
+
+    <Errors>
+        <Error errorCode="OUT_OF_RANGE">Argument was out of range</Error>
+        <Error errorCode="INVALID_XPATH">Bad path</Error>
+    </Errors>
+</MTConnectError>

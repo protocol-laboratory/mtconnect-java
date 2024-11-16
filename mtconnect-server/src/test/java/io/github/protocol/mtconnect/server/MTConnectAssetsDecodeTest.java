@@ -6,30 +6,15 @@ import io.github.protocol.mtconnect.common.XmlUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.InputStream;
+
 class MTConnectAssetsDecodeTest {
 
     @Test
     void testMTConnectAssetsDecode() throws Exception {
-        String xml = """
-                <?xml version="1.0" encoding="UTF-8"?>
-                <MTConnectAssets xmlns="urn:mtconnect.org:MTConnectAssets:1.2"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="urn:mtconnect.org:MTConnectAssets:1.2 ../MTConnectAssets_1.2.xsd">
 
-                  <Header creationTime="2001-12-17T09:30:47Z" sender="localhost"
-                    version="1.2" bufferSize="131000" instanceId="1" />
-
-                  <Assets>
-                    <CuttingTool serialNumber="1234" timestamp="2001-12-17T09:30:47Z" assetId="1234-112233">
-                      <Description>Cutting Tool</Description>
-                      <ToolDefinition>...</ToolDefinition>
-                      <ToolLifeCycle deviceUuid="1222" toolId="1234">...</ToolLifeCycle>
-                    </CuttingTool>
-                  </Assets>
-                </MTConnectAssets>
-                """;
-
-        MTConnectAssets mtConnectAssets = XmlUtil.fromXml(xml, MTConnectAssets.class);
+        InputStream xmlInputStream = MTConnectFileUtil.readFile("mtconnect_assets.xml");
+        MTConnectAssets mtConnectAssets = XmlUtil.fromXml(xmlInputStream, MTConnectAssets.class);
 
         // Validate MTConnectAssets object
         Assertions.assertNotNull(mtConnectAssets);
