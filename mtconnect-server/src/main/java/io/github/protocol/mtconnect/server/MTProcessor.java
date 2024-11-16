@@ -5,7 +5,7 @@ import io.github.protocol.mtconnect.api.DeviceRequest;
 import io.github.protocol.mtconnect.api.MTConnectAssets;
 import io.github.protocol.mtconnect.api.MTConnectDevices;
 
-public interface MtProcessor {
+public interface MTProcessor {
     MTConnectAssets asset(AssetRequest assetRequest);
     MTConnectDevices device(DeviceRequest deviceRequest);
 }

@@ -4,9 +4,9 @@ import io.github.protocol.mtconnect.api.AssetRequest;
 import io.github.protocol.mtconnect.api.DeviceRequest;
 import io.github.protocol.mtconnect.api.MTConnectAssets;
 import io.github.protocol.mtconnect.api.MTConnectDevices;
-import io.github.protocol.mtconnect.server.MtProcessor;
+import io.github.protocol.mtconnect.server.MTProcessor;
 
-public class IoTDAMtProcessor implements MtProcessor {
+public class IoTDAMtProcessor implements MTProcessor {
     private final String ak;
 
     private final String sk;

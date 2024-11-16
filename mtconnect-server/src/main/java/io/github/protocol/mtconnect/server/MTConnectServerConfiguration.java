@@ -4,19 +4,19 @@ import io.github.openfacade.http.HttpServerConfig;
 import lombok.Setter;
 
 @Setter
-public class MtConnectServerConfiguration {
+public class MTConnectServerConfiguration {
     private HttpServerConfig httpConfig;
 
-    private MtProcessor mtProcessor;
+    private MTProcessor mtProcessor;
 
-    public MtConnectServerConfiguration() {
+    public MTConnectServerConfiguration() {
     }
 
     public HttpServerConfig httpConfig() {
         return httpConfig;
     }
 
-    public MtProcessor mtHandler() {
+    public MTProcessor mtHandler() {
         return mtProcessor;
     }
 }

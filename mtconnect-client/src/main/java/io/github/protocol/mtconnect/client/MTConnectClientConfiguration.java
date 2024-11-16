@@ -4,14 +4,14 @@ import io.github.openfacade.http.HttpClientConfig;
 import lombok.Setter;
 
 @Setter
-public class MtConnectClientConfiguration {
+public class MTConnectClientConfiguration {
     private String host;
 
     private int port;
 
     private HttpClientConfig httpConfig;
 
-    public MtConnectClientConfiguration() {
+    public MTConnectClientConfiguration() {
     }
 
     public String host() {

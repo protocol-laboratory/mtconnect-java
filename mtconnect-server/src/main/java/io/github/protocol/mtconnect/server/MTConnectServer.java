@@ -14,14 +14,14 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 
-public class MtConnectServer {
-    private final MtConnectServerConfiguration config;
+public class MTConnectServer {
+    private final MTConnectServerConfiguration config;
 
     private final HttpServer httpServer;
 
-    private final MtProcessor mtProcessor;
+    private final MTProcessor mtProcessor;
 
-    public MtConnectServer(MtConnectServerConfiguration configuration) {
+    public MTConnectServer(MTConnectServerConfiguration configuration) {
         this.config = configuration;
         this.httpServer = HttpServerFactory.createHttpServer(config.httpConfig());
         this.mtProcessor = configuration.mtHandler();

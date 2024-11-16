@@ -29,12 +29,12 @@
 
     <Match>
         <Bug pattern="DLS_DEAD_LOCAL_STORE"/>
-        <Class name="io.github.protocol.mtconnect.examples.MtConnectClientExample"/>
+        <Class name="io.github.protocol.mtconnect.examples.MTConnectClientExample"/>
     </Match>
 
     <Match>
         <Bug pattern="SIC_INNER_SHOULD_BE_STATIC"/>
-        <Class name="io.github.protocol.mtconnect.server.MtConnectServer$MtAssetsHandler"/>
+        <Class name="io.github.protocol.mtconnect.server.MTConnectServer$MtAssetsHandler"/>
     </Match>
 
 </FindBugsFilter>
