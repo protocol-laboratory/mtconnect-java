@@ -23,6 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <src.dir>src/main/java</src.dir>
         <jacoco.overall.exec>${maven.multiModuleProjectDirectory}/target/jacoco/jacoco.exec</jacoco.overall.exec>
+        <jacoco.skip>false</jacoco.skip>
         <!-- dependency -->
         <http-facade.version>0.2.0</http-facade.version>
         <huaweicloud-sdk.version>3.1.117</huaweicloud-sdk.version>
@@ -92,6 +93,7 @@
                         <id>prepare-agent</id>
                         <configuration>
                             <append>true</append>
+                            <skip>${jacoco.skip}</skip>
                         </configuration>
                         <goals>
                             <goal>prepare-agent</goal>
@@ -100,6 +102,9 @@
                     <execution>
                         <id>report</id>
                         <phase>validate</phase>
+                        <configuration>
+                            <skip>${jacoco.skip}</skip>
+                        </configuration>
                         <goals>
                             <goal>report</goal>
                         </goals>

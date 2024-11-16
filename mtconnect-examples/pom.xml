@@ -11,6 +11,10 @@
 
     <artifactId>mtconnect-examples</artifactId>
 
+    <properties>
+        <jacoco.skip>true</jacoco.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
