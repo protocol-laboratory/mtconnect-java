@@ -1,8 +1,9 @@
 package io.github.protocol.mtconnect.server.impl;
 
 import io.github.protocol.mtconnect.api.AssetRequest;
-import io.github.protocol.mtconnect.api.AssetResponse;
+import io.github.protocol.mtconnect.api.DeviceRequest;
 import io.github.protocol.mtconnect.api.MTConnectAssets;
+import io.github.protocol.mtconnect.api.MTConnectDevices;
 import io.github.protocol.mtconnect.server.MtProcessor;
 
 import java.util.HashMap;
@@ -16,10 +17,12 @@ public class MemoryMtProcessor implements MtProcessor {
     Map<String, MTConnectAssets> mtConnectAssetsMap = new HashMap<>();
 
     @Override
-    public AssetResponse asset(AssetRequest assetRequest) {
-        MTConnectAssets assets = mtConnectAssetsMap.get(assetRequest.getId());
-        AssetResponse assetResponse = new AssetResponse();
-        assetResponse.setAssets(assets);
-        return assetResponse;
+    public MTConnectAssets asset(AssetRequest assetRequest) {
+        return mtConnectAssetsMap.get(assetRequest.getId());
+    }
+
+    @Override
+    public MTConnectDevices device(DeviceRequest deviceRequest) {
+        return null;
     }
 }

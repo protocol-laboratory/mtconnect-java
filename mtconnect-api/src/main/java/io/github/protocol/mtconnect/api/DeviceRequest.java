@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AssetResponse {
-    MTConnectAssets assets;
+public class DeviceRequest {
+    private String id;
 }

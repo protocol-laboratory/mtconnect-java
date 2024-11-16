@@ -7,7 +7,7 @@ import io.github.openfacade.http.HttpServer;
 import io.github.openfacade.http.HttpServerFactory;
 import io.github.openfacade.http.SyncRequestHandler;
 import io.github.protocol.mtconnect.api.AssetRequest;
-import io.github.protocol.mtconnect.api.AssetResponse;
+import io.github.protocol.mtconnect.api.MTConnectAssets;
 import io.github.protocol.mtconnect.common.XmlUtil;
 import io.netty.handler.codec.http.HttpResponseStatus;
 
@@ -35,11 +35,11 @@ public class MtConnectServer {
     class MtAssetsHandler implements SyncRequestHandler {
         @Override
         public HttpResponse handle(HttpRequest request) {
-            AssetResponse assetResponse = mtProcessor.asset(new AssetRequest());
+            MTConnectAssets mtConnectAssets = mtProcessor.asset(new AssetRequest());
             // convert the response to http response
             String body;
             try {
-                body = XmlUtil.toXml(assetResponse.getAssets());
+                body = XmlUtil.toXml(mtConnectAssets);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
