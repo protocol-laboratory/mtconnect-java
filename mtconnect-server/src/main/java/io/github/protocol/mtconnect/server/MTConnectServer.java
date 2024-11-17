@@ -32,6 +32,10 @@ public class MTConnectServer {
         return httpServer.start();
     }
 
+    public int getHttpPort() {
+        return httpServer.listenPort();
+    }
+
     class MtAssetsHandler implements SyncRequestHandler {
         @Override
         public HttpResponse handle(HttpRequest request) {
