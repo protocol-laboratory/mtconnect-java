@@ -8,9 +8,9 @@ import io.github.protocol.mtconnect.api.MTConnectDevices;
 import io.github.protocol.mtconnect.client.MTConnectClient;
 import io.github.protocol.mtconnect.client.MTConnectClientConfiguration;
 import io.github.protocol.mtconnect.server.impl.MemoryMtProcessor;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 
@@ -19,7 +19,7 @@ public class MTConnectDeviceTest {
     private int port;
     private final String localHost = "127.0.0.1";
 
-    // start memery server
+    // start memory server
     private MemoryMtProcessor startMemoryServer() {
         MTConnectServerConfiguration configuration = new MTConnectServerConfiguration();
         HttpServerConfig httpServerConfig = new HttpServerConfig.Builder()
@@ -33,7 +33,7 @@ public class MTConnectDeviceTest {
         MTConnectServer mtConnectServer = new MTConnectServer(configuration);
         mtConnectServer.start().join();
 
-        port = mtConnectServer.getHttpPort();
+        port = mtConnectServer.httpPort();
 
         return mtProcessor;
     }
@@ -43,9 +43,10 @@ public class MTConnectDeviceTest {
         MemoryMtProcessor memoryMtProcessor = startMemoryServer();
         MTConnectDevices devices = new MTConnectDevices();
         Device device = new Device();
+        device.setId("test_id");
 
         devices.setDevices(Collections.singletonList(device));
-        memoryMtProcessor.updateDevice(devices);
+        memoryMtProcessor.updateDevices(devices);
 
         MTConnectClientConfiguration configuration = new MTConnectClientConfiguration();
         HttpClientConfig httpClientConfig = new HttpClientConfig.Builder().build();
@@ -54,8 +55,7 @@ public class MTConnectDeviceTest {
         configuration.setPort(port);
         MTConnectClient mtConnectClient = new MTConnectClient(configuration);
 
-        // use client show device
-        MTConnectDevices resp = mtConnectClient.deivces();
-        System.out.println(resp.getDevices());
+        MTConnectDevices resp = mtConnectClient.devices();
+        Assertions.assertEquals(device.getId(), resp.getDevices().get(0).getId());
     }
 }

@@ -18,6 +18,12 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.github.protocol-laboratory</groupId>
+            <artifactId>mtconnect-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.huaweicloud.sdk</groupId>
             <artifactId>huaweicloud-sdk-iotda</artifactId>
             <version>${huaweicloud-sdk.version}</version>
@@ -36,12 +42,6 @@
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web</artifactId>
             <version>${vertx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.protocol-laboratory</groupId>
-            <artifactId>mtconnect-client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
