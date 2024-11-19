@@ -15,7 +15,14 @@ public class MTConnectIoTDAServerExample {
                 .port(36633)
                 .build();
         configuration.setHttpConfig(httpServerConfig);
-        configuration.setMtProcessor(new IoTDAMtProcessor("your_ak", "your_sk"));
+        IoTDAMtProcessor ioTDAMtProcessor = new IoTDAMtProcessor.Builder()
+                .setAk(System.getenv("CLOUD_SDK_AK"))
+                .setSk(System.getenv("CLOUD_SDK_SK"))
+                .setProjectId("your_project_id")
+                .setEndpoint("ec138732b4.st1.iotda-app.cn-north-4.myhuaweicloud.com")
+                .build();
+
+        configuration.setMtProcessor(ioTDAMtProcessor);
         MTConnectServer mtConnectServer = new MTConnectServer(configuration);
         mtConnectServer.start().join();
     }
