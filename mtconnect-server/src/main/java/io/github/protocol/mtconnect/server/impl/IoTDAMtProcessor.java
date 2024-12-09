@@ -88,7 +88,16 @@ public class IoTDAMtProcessor implements MTProcessor {
             return this;
         }
 
+        // only for test
+        public Builder setIoTDAClient(IoTDAClient client) {
+            ioTDAMtProcessor.client = client;
+            return this;
+        }
+
         public IoTDAMtProcessor build(){
+            if (ioTDAMtProcessor.client != null) {
+                return ioTDAMtProcessor;
+            }
 
             ICredential auth = new BasicCredentials()
                     // 标准版/企业版需要使用衍生算法，基础版请删除配置"withDerivedPredicate";
