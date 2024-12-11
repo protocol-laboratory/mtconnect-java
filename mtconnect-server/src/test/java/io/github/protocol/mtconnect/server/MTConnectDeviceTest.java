@@ -3,7 +3,9 @@ package io.github.protocol.mtconnect.server;
 import io.github.openfacade.http.HttpClientConfig;
 import io.github.openfacade.http.HttpServerConfig;
 import io.github.openfacade.http.HttpServerEngine;
+import io.github.protocol.mtconnect.api.CuttingTool;
 import io.github.protocol.mtconnect.api.Device;
+import io.github.protocol.mtconnect.api.MTConnectAssets;
 import io.github.protocol.mtconnect.api.MTConnectDevices;
 import io.github.protocol.mtconnect.client.MTConnectClient;
 import io.github.protocol.mtconnect.client.MTConnectClientConfiguration;
@@ -36,6 +38,27 @@ public class MTConnectDeviceTest {
         port = mtConnectServer.httpPort();
 
         return mtProcessor;
+    }
+
+    @Test
+    public void testAssets() throws ExecutionException, InterruptedException {
+        MemoryMtProcessor memoryMtProcessor = startMemoryServer();
+        MTConnectAssets assets = new MTConnectAssets();
+        CuttingTool cuttingTool = new CuttingTool();
+        cuttingTool.setAssetId("asset_id");
+
+        assets.setCuttingTools(Collections.singletonList(cuttingTool));
+        memoryMtProcessor.updateAssets(assets);
+
+        MTConnectClientConfiguration configuration = new MTConnectClientConfiguration();
+        HttpClientConfig httpClientConfig = new HttpClientConfig.Builder().build();
+        configuration.setHttpConfig(httpClientConfig);
+        configuration.setHost(localHost);
+        configuration.setPort(port);
+        MTConnectClient mtConnectClient = new MTConnectClient(configuration);
+
+        MTConnectAssets resp = mtConnectClient.assets();
+        Assertions.assertEquals(cuttingTool.getAssetId(), resp.getCuttingTools().get(0).getAssetId());
     }
 
     @Test

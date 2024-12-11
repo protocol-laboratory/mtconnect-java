@@ -6,21 +6,18 @@ import io.github.protocol.mtconnect.api.MTConnectAssets;
 import io.github.protocol.mtconnect.api.MTConnectDevices;
 import io.github.protocol.mtconnect.server.MTProcessor;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * MemoryMtProcessor is a simple implementation of MtProcessor that stores all the data in memory.
  */
 public class MemoryMtProcessor implements MTProcessor {
 
-    private final Map<String, MTConnectAssets> mtConnectAssetsMap = new HashMap<>();
-
     private MTConnectDevices devices;
+    private MTConnectAssets assets;
 
     @Override
     public MTConnectAssets asset(AssetRequest assetRequest) {
-        return mtConnectAssetsMap.get(assetRequest.getId());
+        return assets;
     }
 
     @Override
@@ -30,5 +27,9 @@ public class MemoryMtProcessor implements MTProcessor {
 
     public void updateDevices(MTConnectDevices devices) {
         this.devices = devices;
+    }
+
+    public void updateAssets(MTConnectAssets assets) {
+        this.assets = assets;
     }
 }
