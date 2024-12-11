@@ -50,6 +50,9 @@ public class IoTDAServerTest {
                 .build();
         configuration.setHttpConfig(httpServerConfig);
         IoTDAMtProcessor ioTDAMtProcessor = new IoTDAMtProcessor.Builder()
+                .setAk("mock_ak")
+                .setSk("mock_sk")
+                .setEndpoint("mock_endpoint")
                 .setIoTDAClient(mockClient)
                 .build();
 
