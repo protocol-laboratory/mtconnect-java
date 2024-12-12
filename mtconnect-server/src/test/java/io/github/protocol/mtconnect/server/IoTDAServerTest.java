@@ -1,5 +1,6 @@
 package io.github.protocol.mtconnect.server;
 
+import com.huaweicloud.sdk.core.exception.ServiceResponseException;
 import com.huaweicloud.sdk.iotda.v5.IoTDAClient;
 import com.huaweicloud.sdk.iotda.v5.model.ListDevicesResponse;
 import com.huaweicloud.sdk.iotda.v5.model.QueryDeviceSimplify;
@@ -30,7 +31,6 @@ public class IoTDAServerTest {
     public void setUp() {
         mockClient = Mockito.mock(IoTDAClient.class);
 
-
         ListDevicesResponse rsp = new ListDevicesResponse();
         QueryDeviceSimplify mockDevice = new QueryDeviceSimplify();
         mockDevice.setDeviceId("mock_device_id");
@@ -40,13 +40,13 @@ public class IoTDAServerTest {
     }
 
     // start iotda server
-    private MTConnectServer startIoTDAServer() {
+    private MTConnectServer startIoTDAServer(int port) {
 
         MTConnectServerConfiguration configuration = new MTConnectServerConfiguration();
         HttpServerConfig httpServerConfig = new HttpServerConfig.Builder()
                 .engine(HttpServerEngine.Vertx)
                 .host("127.0.0.1")
-                .port(36633)
+                .port(port)
                 .build();
         configuration.setHttpConfig(httpServerConfig);
         IoTDAMtProcessor ioTDAMtProcessor = new IoTDAMtProcessor.Builder()
@@ -65,9 +65,10 @@ public class IoTDAServerTest {
 
     @Test
     public void testDevices() throws ExecutionException, InterruptedException {
-        MTConnectServer mtConnectServer = startIoTDAServer();
+        int inputPort = 36633;
+        MTConnectServer mtConnectServer = startIoTDAServer(inputPort);
         int port = mtConnectServer.httpPort();
-        Assertions.assertEquals(36633, port);
+        Assertions.assertEquals(inputPort, port);
 
         MTConnectClientConfiguration configuration = new MTConnectClientConfiguration();
         HttpClientConfig httpClientConfig = new HttpClientConfig.Builder().build();
@@ -79,5 +80,25 @@ public class IoTDAServerTest {
         MTConnectDevices resp = mtConnectClient.devices();
         Assertions.assertEquals("mock_device_id", resp.getDevices().get(0).getId());
         Assertions.assertEquals("mock_device_name", resp.getDevices().get(0).getName());
+    }
+
+    @Test
+    public void testException() throws ExecutionException, InterruptedException {
+        ServiceResponseException e = new ServiceResponseException(400, "errorCode", "errorMsg", "requestId");
+
+        when(mockClient.listDevices(any())).thenThrow(e);
+
+        MTConnectServer mtConnectServer = startIoTDAServer(0);
+        int port = mtConnectServer.httpPort();
+
+        MTConnectClientConfiguration configuration = new MTConnectClientConfiguration();
+        HttpClientConfig httpClientConfig = new HttpClientConfig.Builder().build();
+        configuration.setHttpConfig(httpClientConfig);
+        configuration.setHost(localHost);
+        configuration.setPort(port);
+        MTConnectClient mtConnectClient = new MTConnectClient(configuration);
+
+        MTConnectDevices resp = mtConnectClient.devices();
+        Assertions.assertEquals(resp.getDevices(), null);
     }
 }
